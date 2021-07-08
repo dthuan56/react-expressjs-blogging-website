@@ -1,0 +1,9 @@
+server/node_modules
+client/node_modules
+.vscode/settings.json
+client/.vscode/launch.json
+client/public/favicon.ico
+client/public/manifest.json
+client/public/robots.txt
+server/zz.js
+server/.vscode/launch.json

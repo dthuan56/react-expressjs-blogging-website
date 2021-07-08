@@ -1,0 +1,20 @@
+header {
+  /* padding: 1rem 14rem; */
+  border-bottom: 1px solid rgb(230, 230, 230);
+  background-color: #fff;
+}
+
+.c-header {
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.c-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.header__profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

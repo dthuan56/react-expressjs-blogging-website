@@ -1,0 +1,66 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --max-width: 1200px;
+  background-color: #eef0f1;
+}
+html, body, #root, #root>div {
+  height: 100%
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.main {
+  height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+
+/* Login */
+.c-form {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+.login-container {
+  background-color: #f2f5f6;
+}
+
+.c-btn-bold {
+  font-weight: bold !important;
+}
+
+/* BlogExcerp */
+.c-img-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.c-profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Home */
+.c-home-container {
+  margin: 0 200px;
+}
+
+
