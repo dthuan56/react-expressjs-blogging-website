@@ -1,0 +1,12 @@
+.commentList {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.05);
+}
+
+.commentList__header {
+  margin-bottom: 20px;
+}

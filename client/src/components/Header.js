@@ -1,8 +1,6 @@
 
-import React, { useEffect, useState, useDispatch } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { logout } from '../slices/userSlice';
 import logo from '../logo.svg';
 import userService from '../services/user.service';
 import './Header.css';
@@ -20,7 +18,7 @@ export const Header = () => {
     } else {
       setRenderHeader(false);
     }
-    // console.log(location.pathname);
+
   }, [location])
   
   const logout = () => {
@@ -28,7 +26,7 @@ export const Header = () => {
     // dispatch(logout());
     history.push('/login');
   }
-  console.log(typeof user);
+
   if(!renderHeader) {
     return null;
   } 

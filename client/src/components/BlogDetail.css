@@ -1,0 +1,35 @@
+.blog {
+  padding: 30px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.05);
+}
+
+.blog__title {
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.blog__info {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.blog__profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.blog__writer {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.blog__date {
+  color: #60747d;
+}
+
+

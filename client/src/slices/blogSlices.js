@@ -3,6 +3,7 @@ import {
   createAsyncThunk
 } from '@reduxjs/toolkit'
 import blogService from '../services/blog.service'
+import commentService from '../services/comment.service';
 
 
 export const getBlogs = createAsyncThunk('blogs/get', async (_, { getState }) => {
@@ -16,11 +17,42 @@ export const getBlogs = createAsyncThunk('blogs/get', async (_, { getState }) =>
   
 })
 
+export const getTrendingBlogs = createAsyncThunk('/blogs/getTrending', async () => {
+  let trendingBlogs = await blogService.getTrendingBlogs();
+  return trendingBlogs;
+})
+
+export const getById = createAsyncThunk('blogs/getById', async ({ blogId, userId }) => {
+  let blog = await blogService.getById(blogId, userId);
+  return blog;
+})
+
+export const getCommentsByBlogId = createAsyncThunk('/blogs/comments', async (blogId) => {
+  let comments = await commentService.getByBlogId(blogId);
+  return comments;
+})
+
+export const addComment = createAsyncThunk('blogs/addComment', async ({blogId, comment}) => {
+  let addedComment = await commentService.addComment(blogId, comment);
+  return addedComment;
+})
+
+export const updateBlog = createAsyncThunk('/blogs/updateLike', async (blog) => {
+  let updatedLikeCount = await blogService.update(blog);
+  return updatedLikeCount;
+})
+
 
 const blogSlice = createSlice({
   name: 'blogs',
   initialState: {
+    currentBlog: {
+      blog: {},
+      comments: [],
+    },
     blogs: [],
+    trendingBlogs: [],
+    newestBlogs: [],
     currentPage: 0,
   },
   reducers: {
@@ -41,10 +73,31 @@ const blogSlice = createSlice({
     },
     [getBlogs.rejected]: (state, action) => {
       console.log(action);
+    },
+    [getTrendingBlogs.fulfilled]: (state, action) => {
+      state.trendingBlogs = action.payload;
+    },
+    [getById.fulfilled]: (state, action) => {
+      state.currentBlog.blog = action.payload;
+    },
+    [getCommentsByBlogId.fulfilled]: (state, action) => {
+      state.currentBlog.comments = action.payload;
+    },
+    [addComment.fulfilled]: (state, action) => {
+      state.currentBlog.comments.push(action.payload);
+    },
+    [updateBlog.fulfilled]: (state, action) => {
+      state.currentBlog.blog = action.payload;
     }
+
   }
 })
 
 export const { setPage } = blogSlice.actions;
 export default blogSlice.reducer;
+
+export const selectAllTrendingBlogs = state => state.blogs.trendingBlogs;
+export const selectAllNewestBlogs = state => state.blogs.newestBlogs;
+
+
 

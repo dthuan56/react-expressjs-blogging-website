@@ -5,11 +5,10 @@ import createError from 'http-errors';
 
 const authService = {
   login: async function(name, password) {
-    let rows = await User.findByNameAndPassword(name, md5(password));
-    if(!rows || rows.length === 0) {
+    let user = await User.findByNameAndPassword(name, md5(password));
+    if(!user) {
       throw createError(400, 'Username or password is incorrect.');
     } else {
-      let user = rows[0];
       let token = this.generateToken(user.name, process.env.SECRET_KEY);
       let userInfo = {
         id: user.id,

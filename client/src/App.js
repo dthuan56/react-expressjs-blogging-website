@@ -9,6 +9,7 @@ import { ProrectedRoute } from './components/ProrectedRoute';
 import { Header } from './components/Header';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
+import { BlogPage } from './components/BlogPage';
 
 function App() {
 
@@ -16,8 +17,9 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/login" component={Login} />
-        <ProrectedRoute exact path="/" component={Home} />
+        <Route path="/login" component={ Login } />
+        <ProrectedRoute exact path="/" component={ Home } />
+        <ProrectedRoute exact path="/blogs/:title" component={ BlogPage } />
       </Switch>
     </Router>
   );

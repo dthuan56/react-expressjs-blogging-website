@@ -8,6 +8,7 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 import './BlogExcerpt.css'
 
 export const BlogExcerpt = forwardRef(({ blog }, ref) => {
+
   return (
     <article className="blogExcerpt" ref={ref}>
       <div className="blogExcerpt__profile">
@@ -17,8 +18,14 @@ export const BlogExcerpt = forwardRef(({ blog }, ref) => {
       </div>
       <div className="blogExcerpt__info">
         <Link className="blogExcerpt__user" to="/home">{blog.name}</Link>
-        <span className="blogExcerpt__date">{blog.written_date}</span>
-        <Link to="/home"><h3 className="blogExcerpt__title">{blog.title}</h3></Link>
+        <span className="blogExcerpt__date">{new Date(blog.written_date).toString()}</span>
+        <Link to={{
+            pathname: `/blogs/${blog.title}`,
+            state: { blogId: blog.id }
+          }}
+        >
+          <h3 className="blogExcerpt__title">{blog.title}</h3>
+        </Link>
         <p className="blogExcerpt__content">{blog.content}</p>
         <div className="blogExcerpt__footer">
           <div className="blogExcerpt__footer__left">

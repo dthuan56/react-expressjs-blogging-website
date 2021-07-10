@@ -1,22 +1,33 @@
 .home {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: wrap;
   max-width: var(--max-width);
   margin-left: auto;
   margin-right: auto;
+  margin-top: 20px;
 }
 
-.right {
-  flex: 0.4;
+.home__feed {
+  flex: 0.65;
+  margin-right: 20px;
+}
+
+.home__sidebar {
+  flex: 0.35;;
 }
 
 @media all and (min-width: 800px) {
-  .main {
-    flex: 1;
-    order: 1;
+  /* .home {
+    padding: 20px;
   }
 
-  .right {
-    display: none;
+  .home__feed{
+    flex: 3;
+    order: 1;
+    margin: 0;
   }
+
+  .home__sidebar {
+    display: none;
+  } */
 }
