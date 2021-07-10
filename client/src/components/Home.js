@@ -4,7 +4,6 @@ import { Feed } from './Feed';
 import { Sidebar } from './Sidebar';
 import { BlogRecommendationList } from './BlogRecommendationList';
 import { selectAllTrendingBlogs, selectAllNewestBlogs, getTrendingBlogs } from '../slices/blogSlices';
-import './Home.css'
 
 export const Home = () => {
   const dispatch = useDispatch();

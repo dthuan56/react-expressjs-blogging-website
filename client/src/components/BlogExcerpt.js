@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import { faComments } from '@fortawesome/free-regular-svg-icons'
 import { faBookmark } from '@fortawesome/free-regular-svg-icons'
-import './BlogExcerpt.css'
 
 export const BlogExcerpt = forwardRef(({ blog }, ref) => {
 

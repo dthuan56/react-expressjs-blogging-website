@@ -8,7 +8,6 @@ import { ProfilePreview } from './ProfilePreview';
 import { CommentList } from './CommentList'
 import { BlogRecommendationList } from './BlogRecommendationList';
 import { getById, selectAllTrendingBlogs, getTrendingBlogs, getCommentsByBlogId, hasBookmarked } from '../slices/blogSlices';
-import './BlogPage.css';
 
 export const BlogPage = () => {
   const blogId = useLocation().state.blogId;
@@ -17,7 +16,7 @@ export const BlogPage = () => {
   const user = useSelector(state => state.auth.user);
 
   const dispatch = useDispatch();
-  console.log(blog);
+
   useEffect(() => {
     dispatch(getById({ blogId, userId: user.id }));
   }, [])
@@ -33,7 +32,7 @@ export const BlogPage = () => {
   return (
     <div className="blogPage">
       <div className="blogPage__blogMetrics">
-        <BlogMetrics />
+        <BlogMetrics blog={blog}/>
       </div>
       <div className="blogPage__blog">
         <BlogDetail  blog={blog} />

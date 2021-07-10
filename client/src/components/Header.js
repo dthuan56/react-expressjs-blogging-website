@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import logo from '../logo.svg';
 import userService from '../services/user.service';
-import './Header.css';
  
 export const Header = () => {
   const user = JSON.parse(localStorage.getItem('user'));

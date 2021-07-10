@@ -4,7 +4,6 @@ import { useDispatch, useSelector} from 'react-redux'
 import { login } from '../slices/userSlice';
 import logo from '../logo.svg';
 import { Link } from 'react-router-dom';
-import './Login.css';
 
 export const Login = () => {
   const name = useRef();

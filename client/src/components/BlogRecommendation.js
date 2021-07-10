@@ -1,5 +1,4 @@
 import React from 'react';
-import './BlogRecommendation.css';
 
 export const BlogRecommendation = ({ blog }) => {
   return (

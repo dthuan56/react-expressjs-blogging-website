@@ -2,26 +2,33 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addComment } from '../slices/blogSlices';
-import './CommentArea.css';
 
-export const CommentArea = ({ comment }) => {
+export const CommentArea = ({ parent, setShow }) => {
   const [content, setContent] = useState('');
   const user = useSelector(state => state.auth.user);
   const currentBlog = useSelector(state => state.blogs.currentBlog.blog);
 
   const dispatch = useDispatch();
-  const reply = () => {
-    let reply = {
+  const postComment = () => {
+    let comment = {
       userId: user.id,
       blogId: currentBlog.id,
-      parentId: comment.id,
+      parentId: parent ? parent.id : null,
       content: content
     }
     
     dispatch(addComment({
       blogId: currentBlog.id, 
-      comment: reply
+      comment
     }));
+
+    setContent('');
+    
+    //remove this component when used as reply area for a comment
+    if(setShow) {
+      setShow(false);
+    }
+    
   }
 
   return (
@@ -36,7 +43,7 @@ export const CommentArea = ({ comment }) => {
           onInput={e => setContent(e.target.value)}
         >
         </textarea> 
-        <button onClick={reply}>Post</button>
+        <button onClick={postComment}>Post</button>
       </div>
     </div>
   )

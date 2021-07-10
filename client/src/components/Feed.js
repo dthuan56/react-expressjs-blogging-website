@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { BlogExcerpt } from './BlogExcerpt';
 import { getBlogs } from '../slices/blogSlices';
-import './Feed.css';
 
 export const Feed = () => {
   // const user = JSON.parse(localStorage.getItem('user'));

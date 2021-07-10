@@ -84,7 +84,7 @@ const blogSlice = createSlice({
       state.currentBlog.comments = action.payload;
     },
     [addComment.fulfilled]: (state, action) => {
-      state.currentBlog.comments.push(action.payload);
+      state.currentBlog.comments = action.payload;
     },
     [updateBlog.fulfilled]: (state, action) => {
       state.currentBlog.blog = action.payload;

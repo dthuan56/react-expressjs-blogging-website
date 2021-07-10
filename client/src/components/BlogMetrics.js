@@ -6,14 +6,13 @@ import { faThumbsUp as filledThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as noFillBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark as filledBookmark} from '@fortawesome/free-solid-svg-icons';
 import { bookmark, removeBookmark, hasBookmarked, like, removeLike, hasLiked } from '../slices/userSlice';
-import './BlogMetrics.css';
 import { updateBlog } from '../slices/blogSlices';
 
-export const BlogMetrics = () => {
+export const BlogMetrics = ({ blog }) => {
   const liked = useSelector(state => state.auth.currentBlog.liked);
   const bookmarked = useSelector(state => state.auth.currentBlog.bookmarked);
   const user = useSelector(state => state.auth.user);
-  const blog = useSelector(state => state.blogs.currentBlog.blog);
+
   const dispatch = useDispatch();
 
   const likeBlog = () => {
@@ -36,9 +35,6 @@ export const BlogMetrics = () => {
 
   useEffect(() => {
     dispatch(hasBookmarked({ userId: user.id, blogId: blog.id }));
-  }, [blog])
-
-  useEffect(() => {
     dispatch(hasLiked({ userId: user.id, blogId: blog.id }));
   }, [blog])
 
