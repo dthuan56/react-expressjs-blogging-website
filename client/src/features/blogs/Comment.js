@@ -4,9 +4,7 @@ import { CommentArea } from './CommentArea';
 
 export const Comment = ({ comment }) => {
   const [showReply, setShowReply] = useState(false);
-  const log = () => {
-    console.log('vl');
-  }
+
   return (
     <div className="comment">
       <Link to="/home">

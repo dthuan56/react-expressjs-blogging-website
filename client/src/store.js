@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authReducer from './slices/userSlice.js';
-import blogReducer from './slices/blogSlices.js';
+import authReducer from './features/users/reduxSlices/userSlice.js';
+import blogReducer from './features/blogs/reduxSlices/blogSlices.js';
 
 
 export default configureStore({

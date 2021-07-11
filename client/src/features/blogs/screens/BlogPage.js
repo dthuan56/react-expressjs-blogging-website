@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router';
-import { BlogDetail } from './BlogDetail';
-import { BlogMetrics } from './BlogMetrics';
-import { Sidebar } from './Sidebar';
-import { ProfilePreview } from './ProfilePreview';
-import { CommentList } from './CommentList'
-import { BlogRecommendationList } from './BlogRecommendationList';
-import { getById, selectAllTrendingBlogs, getTrendingBlogs, getCommentsByBlogId, hasBookmarked } from '../slices/blogSlices';
+import { BlogDetail } from '../BlogDetail';
+import { BlogMetrics } from '../BlogMetrics';
+import { Sidebar } from '../../layout/Sidebar';
+import { ProfilePreview } from '../../users/ProfilePreview';
+import { CommentList } from '../CommentList'
+import { BlogRecommendationList } from '../BlogRecommendationList';
+import { getById, selectAllTrendingBlogs, getTrendingBlogs, getCommentsByBlogId, hasBookmarked } from '../reduxSlices/blogSlices';
 
 export const BlogPage = () => {
   const blogId = useLocation().state.blogId;

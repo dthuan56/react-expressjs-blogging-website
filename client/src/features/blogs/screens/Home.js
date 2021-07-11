@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { Feed } from './Feed';
-import { Sidebar } from './Sidebar';
-import { BlogRecommendationList } from './BlogRecommendationList';
-import { selectAllTrendingBlogs, selectAllNewestBlogs, getTrendingBlogs } from '../slices/blogSlices';
+import { Feed } from '../Feed';
+import { Sidebar } from '../../layout/Sidebar';
+import { BlogRecommendationList } from '../BlogRecommendationList';
+import { selectAllTrendingBlogs, selectAllNewestBlogs, getTrendingBlogs } from '../reduxSlices/blogSlices';
 
 export const Home = () => {
   const dispatch = useDispatch();

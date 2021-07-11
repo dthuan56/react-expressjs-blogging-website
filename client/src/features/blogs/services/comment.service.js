@@ -1,4 +1,4 @@
-import client from './config.service';
+import client from '../../../config.service';
 
 const commentService = {
   getByBlogId: (blogId) => {

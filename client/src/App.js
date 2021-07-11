@@ -4,12 +4,12 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
-import { ProrectedRoute } from './components/ProrectedRoute';
+import { ProrectedRoute } from './features/security/ProrectedRoute';
 
-import { Header } from './components/Header';
-import { Login } from './components/Login';
-import { Home } from './components/Home';
-import { BlogPage } from './components/BlogPage';
+import { Header } from './features/layout/Header';
+import { Login } from './features/loginPage/Login';
+import { Home } from './features/blogs/screens/Home';
+import { BlogPage } from './features/blogs/screens/BlogPage';
 
 function App() {
 

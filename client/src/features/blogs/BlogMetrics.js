@@ -5,8 +5,8 @@ import { faThumbsUp as noFillThumbsUp } from '@fortawesome/free-regular-svg-icon
 import { faThumbsUp as filledThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import { faBookmark as noFillBookmark } from '@fortawesome/free-regular-svg-icons';
 import { faBookmark as filledBookmark} from '@fortawesome/free-solid-svg-icons';
-import { bookmark, removeBookmark, hasBookmarked, like, removeLike, hasLiked } from '../slices/userSlice';
-import { updateBlog } from '../slices/blogSlices';
+import { bookmark, removeBookmark, hasBookmarked, like, removeLike, hasLiked } from '../users/reduxSlices/userSlice';
+import { updateBlog } from './reduxSlices/blogSlices';
 
 export const BlogMetrics = ({ blog }) => {
   const liked = useSelector(state => state.auth.currentBlog.liked);

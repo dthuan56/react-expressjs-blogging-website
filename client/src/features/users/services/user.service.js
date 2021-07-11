@@ -1,5 +1,5 @@
-import client from './config.service';
-import { setAuthToken } from './config.service';
+import client from '../../../config.service';
+import { setAuthToken } from '../../../config.service';
 
 const userService = {
   

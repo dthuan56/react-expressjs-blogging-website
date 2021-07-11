@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux'
-import { login } from '../slices/userSlice';
-import logo from '../logo.svg';
+import { login } from '../users/reduxSlices/userSlice';
+import logo from '../../logo.svg';
 import { Link } from 'react-router-dom';
 
 export const Login = () => {
