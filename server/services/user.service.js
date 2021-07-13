@@ -1,24 +1,47 @@
+import Post from '../models/post.js';
 import User from '../models/user.js';
 
 const userService = {
-  hasBookmarked: async (userId, blogId) => {
-    return await User.hasBookmarked(userId, blogId);
+  getById: async (userId) => {
+    return await User.getById(userId);
   },
-  bookmark: async (userId, blogId) => {
-    return await User.bookmark(userId, blogId);
+  hasBookmarked: async (userId, postId) => {
+    return await User.hasBookmarked(userId, postId);
   },
-  removeBookmark: async (userId, blogId) => {
-    return await User.removeBookmark(userId, blogId);
+  bookmark: async (userId, postId) => {
+    return await User.bookmark(userId, postId);
   },
-  hasLiked: async (userId, blogId) => {
-    return await User.hasLiked(userId, blogId);
+  removeBookmark: async (userId, postId) => {
+    return await User.removeBookmark(userId, postId);
   },
-  like: async (userId, blogId) => {
-    return await User.like(userId, blogId);
+  hasLiked: async (userId, postId) => {
+    return await User.hasLiked(userId, postId);
   },
-  removeLike: async (userId, blogId) => {
-    return await User.removeLike(userId, blogId);
+  like: async (userId, postId) => {
+    return await User.like(userId, postId);
   },
+  removeLike: async (userId, postId) => {
+    return await User.removeLike(userId, postId);
+  },
+  follow: async (followerId, followedId) => {
+    return await User.follow(followerId, followedId);
+  },
+  removeFollow: async (followerId, followedId) => {
+    return await User.removeFollow(followerId, followedId);
+  },
+  hasFollowed: async (followerId, followedId) => {
+    return await User.hasFollowed(followerId, followedId);
+  },
+  getOwnPosts: async (page, userId) => {
+    return await Post.getByWriterId(page, userId);
+  },
+  getBookmarkedPosts: async (page, userId) => {
+    return await Post.getBookmarkedPosts(page, userId);
+  },
+  getFollowing: async (page, userId) => {
+    return await User.getFollowing(page, userId);
+  }
+  
 }
 
 export default userService;

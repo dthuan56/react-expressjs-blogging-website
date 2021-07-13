@@ -7,7 +7,7 @@ export const up = function(knex) {
       table.string('password');
       table.text('profile_img')
     })
-    .createTable('blog', (table) => {
+    .createTable('post', (table) => {
       table.increments('id');
       table.integer('writer_id').unsigned().references('id').inTable('user');
       table.string('title');
@@ -18,14 +18,14 @@ export const up = function(knex) {
     .createTable('comment', (table) => {
       table.increments('id');
       table.integer('user_id').unsigned().references('id').inTable('user');
-      table.integer('blog_id').unsigned().references('id').inTable('blog');
+      table.integer('post_id').unsigned().references('id').inTable('post');
       table.integer('parent_id').unsigned().references('id').inTable('comment');
       table.text('content');   
       table.datetime('date');
     })
     .createTable('bookmark', (table) => {
       table.integer('user_id').unsigned().references('id').inTable('user');
-      table.integer('blog_id').unsigned().references('id').inTable('blog');
+      table.integer('post_id').unsigned().references('id').inTable('post');
     })
     .createTable('follow', (table) => {
       table.integer('follower_id').unsigned().references('id').inTable('user');
@@ -33,7 +33,7 @@ export const up = function(knex) {
     })
     .createTable('user_like', (table) => {
       table.integer('user_id').unsigned().references('id').inTable('user');
-      table.integer('blog_id').unsigned().references('id').inTable('user');
+      table.integer('post_id').unsigned().references('id').inTable('user');
     })
 };
 

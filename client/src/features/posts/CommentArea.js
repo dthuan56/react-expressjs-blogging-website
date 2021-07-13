@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { addComment } from './reduxSlices/blogSlices';
+import { addComment } from './reduxSlices/postsSlices';
 
 export const CommentArea = ({ parent, setShow }) => {
   const [content, setContent] = useState('');
-  const user = useSelector(state => state.auth.user);
-  const currentBlog = useSelector(state => state.blogs.currentBlog.blog);
+  const user = useSelector(state => state.users.loggedInUser);
+  const currentPost = useSelector(state => state.posts.singlePostPage.post);
 
   const dispatch = useDispatch();
   const postComment = () => {
     let comment = {
       userId: user.id,
-      blogId: currentBlog.id,
+      postId: currentPost.id,
       parentId: parent ? parent.id : null,
       content: content
     }
     
     dispatch(addComment({
-      blogId: currentBlog.id, 
+      postId: currentPost.id, 
       comment
     }));
 
@@ -28,7 +28,6 @@ export const CommentArea = ({ parent, setShow }) => {
     if(setShow) {
       setShow(false);
     }
-    
   }
 
   return (
@@ -43,7 +42,7 @@ export const CommentArea = ({ parent, setShow }) => {
           onInput={e => setContent(e.target.value)}
         >
         </textarea> 
-        <button onClick={postComment}>Post</button>
+        <button className="commentArea__reply-button" onClick={postComment}>Post</button>
       </div>
     </div>
   )

@@ -7,8 +7,8 @@ const commentService = {
   getLast: async function () {
     return await Comment.getLast();
   },
-  getByBlogId: async function (blogId) {
-    let comments = await Comment.getByBlogId(blogId);
+  getByPostId: async function (postId) {
+    let comments = await Comment.getByPostId(postId);
     
     comments = Promise.all(comments.map( async (comment) => {
       let queue = [];

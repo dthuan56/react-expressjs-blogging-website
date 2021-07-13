@@ -7,6 +7,13 @@ export const seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       const users = [];
+      const defaultUser = {
+        name: 'user',
+        password: md5('user'),
+        profile_img: faker.image.image()
+      }
+      users.push(defaultUser);
+      
       for(let i = 1; i <= 5; i++) {
         users.push({
           name: faker.internet.userName(),

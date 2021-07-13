@@ -1,14 +1,14 @@
 import client from '../../../config.service';
 
 const commentService = {
-  getByBlogId: (blogId) => {
+  getByPostId: (postId) => {
     return client
-      .get('/blogs/' + blogId + '/comments')
+      .get('/posts/' + postId + '/comments')
       .then(response => response.data);
   },
-  addComment: (blogId, comment) => {
+  addComment: (postId, comment) => {
     return client 
-      .post('/blogs/' + blogId + '/comments', {
+      .post('/posts/' + postId + '/comments', {
         comment
       })
       .then(response => response.data);

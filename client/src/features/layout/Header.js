@@ -10,6 +10,7 @@ export const Header = () => {
   const location = useLocation();
   // const dispatch = useDispatch();
   const [renderHeader, setRenderHeader] = useState(true);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   useEffect(() => {
     if(location.pathname !== '/login') {
@@ -26,23 +27,34 @@ export const Header = () => {
     history.push('/login');
   }
 
+  const toggleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+  }
+
   if(!renderHeader) {
     return null;
   } 
 
   return (
-    <header className="c-header">
-      <nav className="d-flex justify-content-between c-nav">
-        
+    <header className="header">
+      <nav className="header__nav">
         <Link to="/"><img src={logo} alt="logo" width="50" height="50"/></Link>
-        <ul className="d-flex">
-          <li>
-            <img className="header__profile"src={user ? user.profile_img : "123"} alt="Profile"/>
-          </li>
-          <li>
-            <button onClick={logout}>Logout</button>
-          </li>
-        </ul>
+        <div onClick={toggleUserMenu} className="header__user-menu">
+        <img className="header__profile"src={user ? user.profile_img : "123"} alt="Profile"/>
+        {
+          showUserMenu 
+            ? <ul className="header__user-dropdown">
+                <li>
+                  <Link to="/new">Write new</Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/posts">Dashboard</Link>
+                </li>
+                <li onClick={logout}>Logout</li>
+              </ul>
+            : null
+        } 
+        </div>
       </nav>
     </header>
   )

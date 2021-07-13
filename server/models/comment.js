@@ -3,19 +3,18 @@ import knex from '../db/db.config.js';
 const Comment = {
   getById: (id) => {
     return knex
-      .select('comment.id', 'content', 'date', 'blog_id', 'user_id', 'name', 'profile_img')
+      .select('comment.id', 'content', 'date', 'post_id', 'user_id', 'name', 'profile_img')
       .from('comment')
       .innerJoin('user', 'comment.user_id', 'user.id')
       .where('comment.id', id)
       .first()
       .then(rows => {
-        console.log(rows);
         return rows;
       })
   },
   getLast: () => {
     return knex
-    .select('comment.id', 'content', 'date', 'blog_id', 'user_id', 'name', 'profile_img')
+    .select('comment.id', 'content', 'date', 'post_id', 'user_id', 'name', 'profile_img')
     .from('comment')
     .innerJoin('user', 'comment.user_id', 'user.id')
     .orderBy([{ column: 'comment.id', order: 'desc'}])
@@ -25,13 +24,13 @@ const Comment = {
       return lastComment;
     })
   },
-  getByBlogId: (blogId) => {
+  getByPostId: (postId) => {
     return knex
-      .select('comment.id', 'content', 'date', 'blog_id', 'user_id', 'name', 'profile_img')
+      .select('comment.id', 'content', 'date', 'post_id', 'user_id', 'name', 'profile_img')
       .from('comment')
       .innerJoin('user', 'comment.user_id', 'user.id')
       .where({
-        'blog_id': blogId,
+        'post_id': postId,
         'parent_id': null
       })
       .then(rows => {
@@ -42,7 +41,7 @@ const Comment = {
     return knex('comment')
       .insert({
         user_Id: comment.userId,
-        blog_Id: comment.blogId,
+        post_Id: comment.postId,
         parent_Id: comment.parentId,
         content: comment.content,
         date: new Date()
@@ -50,7 +49,7 @@ const Comment = {
   },
   getReplies: (parentId) => {
     return knex
-      .select('comment.id', 'content', 'date', 'blog_id', 'user_id', 'name', 'profile_img')
+      .select('comment.id', 'content', 'date', 'post_id', 'user_id', 'name', 'profile_img')
       .from('comment')
       .innerJoin('user', 'comment.user_id', 'user.id')
       .where('parent_id', parentId)

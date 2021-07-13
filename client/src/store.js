@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import authReducer from './features/users/reduxSlices/userSlice.js';
-import blogReducer from './features/blogs/reduxSlices/blogSlices.js';
+import authReducer from './features/users/reduxSlices/userSlice';
+import postReducer from './features/posts/reduxSlices/postsSlices';
+import dashboardReducer from './features/users/reduxSlices/dashboardSlice';
 
 
 export default configureStore({
   reducer: {
-    auth: authReducer,
-    blogs: blogReducer
+    users: authReducer,
+    posts: postReducer,
+    dashboard: dashboardReducer
   },
 })

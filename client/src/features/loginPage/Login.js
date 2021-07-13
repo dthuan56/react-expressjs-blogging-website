@@ -8,24 +8,17 @@ import { Link } from 'react-router-dom';
 export const Login = () => {
   const name = useRef();
   const password = useRef();
-  const errorStatus = useSelector(state => state.auth.errorStatus);
-  // const user = useSelector(state => state.auth.user);
+  const errorLogIn = useSelector(state => state.users.errorLogIn);
+  // const user = useSelector(state => state.loggedInUser);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login({ name: name.current.value, password: password.current.value }));
+    await dispatch(login({ name: name.current.value, password: password.current.value }));
     history.push('/');
   }
-
-  // useEffect(() => {
-  //   // if isUserLoggedIn turned to true redirect to /home
-  //   if (user) { 
-  //     history.push("/home");
-  //   }
-  // }, user)
 
   return (
     <div className="d-flex flex-row align-items-center login-container">
@@ -48,7 +41,7 @@ export const Login = () => {
             className="form-control p-3 mb-4"
             ref={password}
           />
-          {errorStatus      
+          {errorLogIn     
             ? <span>Wrong username or password.</span> 
             : null
           }

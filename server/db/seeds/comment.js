@@ -8,7 +8,7 @@ export const seed = function(knex) {
       for (let i = 0; i < 50; i++) {
         comments.push({
           user_id: faker.datatype.number({ 'min': 1, 'max': 5}),
-          blog_id: faker.datatype.number({ 'min': 1, 'max': 100}),
+          post_id: faker.datatype.number({ 'min': 1, 'max': 100}),
           content: faker.lorem.paragraphs(3),
           date: faker.date.recent()
         })

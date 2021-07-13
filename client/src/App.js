@@ -7,9 +7,13 @@ import {
 import { ProrectedRoute } from './features/security/ProrectedRoute';
 
 import { Header } from './features/layout/Header';
+import { Footer } from './features/layout/Footer';
 import { Login } from './features/loginPage/Login';
-import { Home } from './features/blogs/screens/Home';
-import { BlogPage } from './features/blogs/screens/BlogPage';
+import { Home } from './features/posts/screens/Home';
+import { PostPage } from './features/posts/screens/SinglePostPage';
+import { ProfilePage } from './features/users/screens/ProfilePage';
+import { NewPost } from './features/posts/screens/NewPost';
+import { UserDashboard } from './features/users/screens/UserDashboard';
 
 function App() {
 
@@ -19,8 +23,12 @@ function App() {
       <Switch>
         <Route path="/login" component={ Login } />
         <ProrectedRoute exact path="/" component={ Home } />
-        <ProrectedRoute exact path="/blogs/:title" component={ BlogPage } />
+        <ProrectedRoute path="/posts/:title" component={ PostPage } />
+        <ProrectedRoute path="/new" component={ NewPost } />
+        <ProrectedRoute path="/dashboard/:part" component={ UserDashboard } />
+        <ProrectedRoute path="/:name" component={ ProfilePage } />
       </Switch>
+      <Footer />
     </Router>
   );
 }

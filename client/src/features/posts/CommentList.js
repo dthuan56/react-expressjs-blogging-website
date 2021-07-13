@@ -4,7 +4,7 @@ import { Comment } from './Comment';
 import { CommentArea } from './CommentArea';
 
 export const CommentList = () => {
-  const comments = useSelector(state => state.blogs.currentBlog.comments);
+  const comments = useSelector(state => state.posts.singlePostPage.comments);
 
   return (
     <div className="commentList">
