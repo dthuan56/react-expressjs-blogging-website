@@ -9,7 +9,6 @@ router.post('/users/:userId/bookmark', bookmark);
 router.delete('/users/:userId/bookmark/:postId', removeBookmark);
 router.get('/users/:userId/bookmark', getBookmarkedPosts);
 
-
 router.get('/users/:userId/like/:postId', hasLiked);
 router.post('/users/:userId/like', like);
 router.delete('/users/:userId/like/:postId', removeLike);

@@ -21,7 +21,6 @@ const userService = {
       .then(response => true);
   },
   removeBookmark: (postId, userId) => {
-    console.log('de', postId)
     return client
       .delete('/users/' + userId + '/bookmark/' + postId)
       .then(response => response.data);

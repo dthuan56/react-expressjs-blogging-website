@@ -41,7 +41,7 @@ export const PostPage = () => {
       <div className="postPage__sidebar">
         <Sidebar >
           <ProfilePreview writerId={post.writer_id} name={post.name} profileImage={post.profile_img} />
-          <div class="postPage__post-list">
+          <div className="postPage__post-list">
             <PostRecommendationList title={'Trending Posts'} selector={selectAllTrendingPosts} />
           </div>
         </Sidebar>

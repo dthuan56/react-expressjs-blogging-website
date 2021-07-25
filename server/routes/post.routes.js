@@ -6,7 +6,6 @@ import { addComment, getCommentsByPostId } from '../controllers/comment.controll
 var router = express.Router();
 
 router.get('/posts', getAll);
-
 router.post('/posts', newPost);
 router.put('/posts/:id', updatePost);
 router.get('/posts/trending', getTrendingPosts);

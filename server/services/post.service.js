@@ -1,26 +1,26 @@
 import Post from '../models/post.js';
 
 const postService = {
-  getAll: async (page) => {
-    return await Post.getAll(page);
+  getAll: (page) => {
+    return  Post.getAll(page);
   },
-  newPost: async (post) => {
-    return await Post.newPost(post);
+  newPost: (post) => {
+    return Post.newPost(post);
   },
-  getTrendingPosts: async () => {
-    return await Post.getTrendingPosts();
+  getTrendingPosts: () => {
+    return Post.getTrendingPosts();
   },
-  getNewestPosts: async () => {
-    return await Post.getNewestPosts();
+  getNewestPosts: () => {
+    return Post.getNewestPosts();
   },
-  getById: async (postId) => {
-    return await Post.getById(postId);
+  getById: (postId) => {
+    return Post.getById(postId);
   },
-  getByWriterId: async (page, writerId) => {
-    return await Post.getByWriterId(page, writerId);
+  getByWriterId: (page, writerId) => {
+    return Post.getByWriterId(page, writerId);
   },
-  update: async (post) => {
-    return await Post.update(post);
+  update: (post) => {
+    return Post.update(post);
   }
 }
 

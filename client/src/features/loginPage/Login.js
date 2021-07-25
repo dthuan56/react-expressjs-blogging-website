@@ -17,7 +17,10 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(login({ name: name.current.value, password: password.current.value }));
-    history.push('/');
+    
+    if(!errorLogIn) {
+      history.push('/');
+    }
   }
 
   return (

@@ -5,7 +5,6 @@ import createError from 'http-errors';
 
 const authService = {
   login: async function(name, password) {
-    console.log(name, password);
     let user = await User.findByNameAndPassword(name, md5(password));
     if(!user) {
       throw createError(400, 'Username or password is incorrect.');

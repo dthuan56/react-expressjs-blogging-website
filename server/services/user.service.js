@@ -2,44 +2,44 @@ import Post from '../models/post.js';
 import User from '../models/user.js';
 
 const userService = {
-  getById: async (userId) => {
-    return await User.getById(userId);
+  getById: (userId) => {
+    return User.getById(userId);
   },
-  hasBookmarked: async (userId, postId) => {
-    return await User.hasBookmarked(userId, postId);
+  hasBookmarked: (userId, postId) => {
+    return User.hasBookmarked(userId, postId);
   },
-  bookmark: async (userId, postId) => {
-    return await User.bookmark(userId, postId);
+  bookmark: (userId, postId) => {
+    return User.bookmark(userId, postId);
   },
-  removeBookmark: async (userId, postId) => {
-    return await User.removeBookmark(userId, postId);
+  removeBookmark: (userId, postId) => {
+    return User.removeBookmark(userId, postId);
   },
-  hasLiked: async (userId, postId) => {
-    return await User.hasLiked(userId, postId);
+  hasLiked: (userId, postId) => {
+    return User.hasLiked(userId, postId);
   },
-  like: async (userId, postId) => {
-    return await User.like(userId, postId);
+  like: (userId, postId) => {
+    return User.like(userId, postId);
   },
-  removeLike: async (userId, postId) => {
-    return await User.removeLike(userId, postId);
+  removeLike: (userId, postId) => {
+    return User.removeLike(userId, postId);
   },
-  follow: async (followerId, followedId) => {
-    return await User.follow(followerId, followedId);
+  follow: (followerId, followedId) => {
+    return User.follow(followerId, followedId);
   },
-  removeFollow: async (followerId, followedId) => {
-    return await User.removeFollow(followerId, followedId);
+  removeFollow: (followerId, followedId) => {
+    return User.removeFollow(followerId, followedId);
   },
-  hasFollowed: async (followerId, followedId) => {
-    return await User.hasFollowed(followerId, followedId);
+  hasFollowed: (followerId, followedId) => {
+    return User.hasFollowed(followerId, followedId);
   },
-  getOwnPosts: async (page, userId) => {
-    return await Post.getByWriterId(page, userId);
+  getOwnPosts: (page, userId) => {
+    return Post.getByWriterId(page, userId);
   },
-  getBookmarkedPosts: async (page, userId) => {
-    return await Post.getBookmarkedPosts(page, userId);
+  getBookmarkedPosts: (page, userId) => {
+    return Post.getBookmarkedPosts(page, userId);
   },
-  getFollowing: async (page, userId) => {
-    return await User.getFollowing(page, userId);
+  getFollowing: (page, userId) => {
+    return User.getFollowing(page, userId);
   }
   
 }

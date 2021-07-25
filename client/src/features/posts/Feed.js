@@ -5,31 +5,23 @@ import { UserPreview } from '../users/UserPreview';
 
 export const Feed = ({ refreshFeed, selector, isUserFeed }) => {
   const data = useSelector(selector);
-
   const observer = useRef();
 
-  const lastPost = useCallback(element => {
-
-    const scrollLoadData = (element) => {
-      if(observer.current) {
-        observer.current.disconnect();
-      }
-      observer.current = new IntersectionObserver(entries => {
-        if(entries[0].isIntersecting) {
-          refreshFeed();
-        }
-      })
-  
-      if(element) {
-        observer.current.observe(element);
-      }
+  const lastPost = (element) => {
+    if(observer.current) {
+      observer.current.disconnect();
     }
+    observer.current = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting) {
+        refreshFeed();
+      }
+    })
 
-    scrollLoadData(element);
+    if(element) {
+      observer.current.observe(element);
+    }
+  }
 
-    return () => scrollLoadData();
-  }, [refreshFeed, selector]);
-  
   return (
     <div className="feed">
       {

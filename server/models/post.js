@@ -15,7 +15,6 @@ const Post = {
     ]).then(([total, rows]) => {
       let totalRow = total.rowCount;
       let totalPage = Math.ceil(totalRow / pageSize);
-
       let postPage = {
         totalPage: totalPage,
         posts: rows
@@ -41,9 +40,7 @@ const Post = {
       .innerJoin('user', 'writer_id', 'user.id')
       .orderBy([{ column: 'like', order: 'desc'}, { column: 'written_date', order: 'desc'}])
       .limit(5)
-      .then(rows => {
-        return rows;
-      })
+      .then(rows => rows)
   },
   getNewestPosts: () => {
     return knex
@@ -121,7 +118,6 @@ const Post = {
     ]).then(([total, rows]) => {
       let totalRow = total.rowCount;
       let totalPage = Math.ceil(totalRow / pageSize);
-
       let postPage = {
         totalPage: totalPage,
         posts: rows
