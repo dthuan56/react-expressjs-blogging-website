@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef } from 'react';
 import { useSelector } from 'react-redux'
 import { PostPreview } from './PostPreview';
 import { UserPreview } from '../users/UserPreview';
