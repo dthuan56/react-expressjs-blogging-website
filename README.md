@@ -1,5 +1,10 @@
 # react-expressjs-blogging-website
 
+## 1. Clone repository
+```
+git clone https://github.com/dthuan56/react-expressjs-blogging-website.git
+cd react-expressjs-blogging-website
+```
 ## 1. Set up database
 ```
 # These is already a sqlite file containing data of user, post, comment, etc., in the server folder
