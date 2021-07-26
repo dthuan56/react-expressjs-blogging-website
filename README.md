@@ -5,7 +5,7 @@
 git clone https://github.com/dthuan56/react-expressjs-blogging-website.git
 cd react-expressjs-blogging-website
 ```
-## 1. Set up database
+## 2. Set up database
 ```
 # These is already a sqlite file containing data of user, post, comment, etc., in the server folder
 # If you want fresh data, delete the sqlite file and run the below command 
@@ -19,25 +19,25 @@ $ npx knex migrate:latest --esm
 $ npx knex seed:run --esm
 ```
 
-## 2. Run Backend
+## 3. Run Backend
 ```
 # Open new terminal in server folder
 $ npm install
 $ npm start
 ```
 
-## 3. Run Frontend
+## 4. Run Frontend
 ```
 # Open new terminal in client folder
 $ npm install
 $ npm start
 ```
-## 4. Login
+## 5. Login
 ```
 # Username: user
 # Password: user
 ```
-## 5. Screenshots
+## 6. Screenshots
 
 
 
