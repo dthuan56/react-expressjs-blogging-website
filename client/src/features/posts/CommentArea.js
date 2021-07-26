@@ -32,9 +32,7 @@ export const CommentArea = ({ parent, setShow }) => {
 
   return (
     <div className="commentArea">
-      <Link to="/home">
-        <img className="commentArea__profile" src={user.profile_img} alt="Profile" />
-      </Link>
+      <img className="commentArea__profile" src={user.profile_img} alt="Profile" />
       <div className="commentArea__reply">
         <textarea 
           className="commentArea__text" 

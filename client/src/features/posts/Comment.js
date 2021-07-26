@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { CommentArea } from './CommentArea';
 
 export const Comment = ({ comment }) => {
@@ -7,9 +6,7 @@ export const Comment = ({ comment }) => {
 
   return (
     <div className="comment">
-      <Link to="/home">
-        <img className="comment_user-profile" src={comment.profile_img} alt="Profile" />
-      </Link>
+      <img className="comment_user-profile" src={comment.profile_img} alt="Profile" />
       <div className="comment__box">
         <div className="comment__content">
           <span className="comment__user-name">{comment.name}</span>
