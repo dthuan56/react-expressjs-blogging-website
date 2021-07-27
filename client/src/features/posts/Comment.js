@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { CommentArea } from './CommentArea';
+import moment from 'moment';
 
 export const Comment = ({ comment }) => {
   const [showReply, setShowReply] = useState(false);
+  const convertDate = (dateString) => {
+    return moment(new Date(dateString)).fromNow();
+  }
 
   return (
     <div className="comment">
@@ -15,7 +19,7 @@ export const Comment = ({ comment }) => {
         
         <div className="comment__footer">
           <div className="comment__reply" onClick={() => setShowReply(!showReply)}>Reply</div>
-          <span className="comment__date">{comment.date}</span>
+          <span className="comment__date">{convertDate(comment.date)}</span>
         </div>
         {
           showReply ? <CommentArea parent={comment} setShow={setShowReply} /> : null
